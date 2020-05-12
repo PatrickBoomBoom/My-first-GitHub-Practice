@@ -1,47 +1,48 @@
 import os
+import config_autoPackage
 
-# 找到目标目录
-cmdGetTarget = 'E: && cd U_Project\PigRun\Client\PigRun'
 
-# svn cleanup
-cmdCleanup = 'svn cleanup && svn revert --recursive .'
-# svn revert自身
-cmdRevertSelf = 'svn revert Assets -R'
-# svn revert外链
-cmdRevertSharedAssets = 'svn revert Assets\SharedAssets -R'
-# svn revert外链
-cmdRevertVarietyStore = 'svn revert Assets\VarietyStore -R'
-# svn update
-cmdUpdate = 'svn update'
+__cmdCleanup = 'svn cleanup && svn revert --recursive .'
+__cmdUpdate = 'svn update'
 
 
 def __prepare_cleanup_SVN():
     print('开始cleanup')
-    cmd = cmdGetTarget + " && " + cmdCleanup
 
-    # t = subprocess.popen(cmd, 'r', 1)
+    global path1
+    path1 = config_autoPackage.project_path.split('/')[0]
+    global path2
+    path2 = config_autoPackage.project_path.split(':/')[1]
+
+    print("盘符： " + path1)
+    print("路径： " + path2)
+
+    cmd = path1 + " && " + path2
+
     t = os.system(cmd)
 
     print("prepare_cleanup_SVN  ：" + str(t))
 
-    return __prepare_revert_SVN()
+    __prepare_revert_SVN()
 
 
 def __prepare_revert_SVN():
     print('开始revert')
-    cmd = cmdGetTarget + " && " + cmdRevertSelf + " && " + cmdRevertSharedAssets + " && " + cmdRevertVarietyStore
+
+    cmd = '%s && %s && svn revert %s -R && svn revert %s -R' % \
+          (path1, path2, config_autoPackage.external_link1, config_autoPackage.external_link2)
 
     t = os.system(cmd)
 
     print("prepare_revert_SVN ：" + str(t))
 
-    return __update_SVN()
+    __update_SVN()
 
 
 def __update_SVN():
     print('开始update')
 
-    cmd = cmdGetTarget + " && " + cmdUpdate
+    cmd = path1 + " && " + path2 + __cmdUpdate
 
     t = os.system(cmd)
 

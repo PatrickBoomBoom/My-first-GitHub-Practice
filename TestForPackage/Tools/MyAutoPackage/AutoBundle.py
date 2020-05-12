@@ -1,45 +1,38 @@
 import os
 import time
-
-# 设置你本地的Unity安装目录
-unity_exe = 'F:/unity/Editor/Unity.exe'
-# unity工程目录，当前脚本放在unity工程根目录中
-project_path = 'E:/U_Project/My-first-GitHub-Practice/TestForPackage'
-# 日志
-log_file = 'C:/Users/hp/Desktop/AutoPackageTest/' + 'unity_bundle_log.log'
-# 方法
-bundle_method = 'AutoPackage.BuildBundle'
+import platform
+import config_autoPackage
 
 
-def kill_unity():
+def __kill_unity():
     os.system('taskkill /IM Unity.exe /F')
 
 
-def clear_log():
-    if os.path.exists(log_file):
-        os.remove(log_file)
+def __clear_log():
+    if os.path.exists(config_autoPackage.bundle_log):
+        os.remove(config_autoPackage.bundle_log)
 
 
-def start_build_bundle():
-
-    if os.path.exists(log_file):
-        os.remove(log_file)
-
+def __start_build_bundle():
     cmd = '%s -projectPath %s -executeMethod %s -logFile %s -batchmode -quit' \
-          % (unity_exe, project_path, bundle_method, log_file)
+          % (config_autoPackage.unity_exe, config_autoPackage.project_path,
+             config_autoPackage.bundle_fuc, config_autoPackage.bundle_log)
 
     os.system(cmd)
 
 
-def monitor_unity_log(target_log):
+def __monitor_unity_log(target_log):
+
+    path = config_autoPackage.bundle_log
     pos = 0
+
     while True:
-        if os.path.exists(log_file):
+        if os.path.exists(path):
             break
         else:
             time.sleep(0.1)
     while True:
-        fd = open(log_file, 'r', encoding='utf-8')
+        fd = open(path, 'r', encoding='utf-8')
         if 0 != pos:
             fd.seek(pos, 0)
         while True:
@@ -57,10 +50,10 @@ def monitor_unity_log(target_log):
 
 
 def start_bundle():
-    kill_unity()
+    __kill_unity()
     time.sleep(1)
-    clear_log()
+    __clear_log()
     time.sleep(1)
-    start_build_bundle()
-    return monitor_unity_log('Exiting batchmode successfully')
+    __start_build_bundle()
+    __monitor_unity_log('Exiting batchmode successfully')
 
