@@ -1,6 +1,5 @@
 import os
 
-# 切换盘符
 # 找到目标目录
 cmdGetTarget = 'E: && cd U_Project\PigRun\Client\PigRun'
 
@@ -16,7 +15,7 @@ cmdRevertVarietyStore = 'svn revert Assets\VarietyStore -R'
 cmdUpdate = 'svn update'
 
 
-def prepare_cleanup_SVN():
+def __prepare_cleanup_SVN():
     print('开始cleanup')
     cmd = cmdGetTarget + " && " + cmdCleanup
 
@@ -25,10 +24,10 @@ def prepare_cleanup_SVN():
 
     print("prepare_cleanup_SVN  ：" + str(t))
 
-    return prepare_revert_SVN()
+    return __prepare_revert_SVN()
 
 
-def prepare_revert_SVN():
+def __prepare_revert_SVN():
     print('开始revert')
     cmd = cmdGetTarget + " && " + cmdRevertSelf + " && " + cmdRevertSharedAssets + " && " + cmdRevertVarietyStore
 
@@ -36,17 +35,15 @@ def prepare_revert_SVN():
 
     print("prepare_revert_SVN ：" + str(t))
 
-    return update_SVN()
+    return __update_SVN()
 
 
-def update_SVN():
+def __update_SVN():
     print('开始update')
 
     cmd = cmdGetTarget + " && " + cmdUpdate
 
     t = os.system(cmd)
-
-    print("update_SVN ：" + str(t))
 
     if t == 0:
         return True
@@ -54,5 +51,9 @@ def update_SVN():
         return False
 
 
+def start_update():
+    __prepare_cleanup_SVN()
+
+
 if __name__ == '__main__':
-    prepare_cleanup_SVN()
+    __prepare_cleanup_SVN()
