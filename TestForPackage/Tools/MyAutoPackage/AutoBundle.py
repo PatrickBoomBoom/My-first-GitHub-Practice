@@ -9,8 +9,11 @@ def __kill_unity():
 
 
 def __clear_log():
-    if os.path.exists(config_autoPackage.bundle_log):
-        os.remove(config_autoPackage.bundle_log)
+    global path
+    path = config_autoPackage.bundle_log
+
+    if os.path.exists(path):
+        os.remove(path)
 
 
 def __start_build_bundle():
@@ -18,12 +21,12 @@ def __start_build_bundle():
           % (config_autoPackage.unity_exe, config_autoPackage.project_path,
              config_autoPackage.bundle_fuc, config_autoPackage.bundle_log)
 
+    print(cmd)
     os.system(cmd)
 
 
 def __monitor_unity_log(target_log):
-
-    path = config_autoPackage.bundle_log
+    print("__monitor_unity_log")
     pos = 0
 
     while True:
@@ -38,8 +41,12 @@ def __monitor_unity_log(target_log):
         while True:
             line = fd.readline()
             pos = pos + len(line)
-            if target_log in line:
-                print('监测到unity输出了目标log: ' + target_log)
+            if 'Exiting batchmode successfully' in line:
+                print('监测到unity输出了目标log: ' + 'Exiting batchmode successfully')
+                fd.close()
+                return
+            if 'Scripts have compiler errors.' in line:
+                print('代码编译错误！！！')
                 fd.close()
                 return
             if line.strip():
@@ -55,5 +62,10 @@ def start_bundle():
     __clear_log()
     time.sleep(1)
     __start_build_bundle()
-    __monitor_unity_log('Exiting batchmode successfully')
+    __monitor_unity_log()
+    print('Build_Bundle_Done')
+
+
+if __name__ == "__main__":
+    start_bundle()
 

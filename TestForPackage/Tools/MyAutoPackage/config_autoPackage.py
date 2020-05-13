@@ -15,3 +15,8 @@ package_fuc = 'AutoPackage.BuildApk'
 external_link1 = 'Assets\SharedAssets'
 # 需要revert的外链2
 external_link2 = 'Assets\VarietyStore'
+
+
+
+
+

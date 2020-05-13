@@ -2,23 +2,25 @@ import os
 import config_autoPackage
 
 
-__cmdCleanup = 'svn cleanup && svn revert --recursive .'
-__cmdUpdate = 'svn update'
+__cmdCleanup = ' && svn cleanup && svn revert --recursive .'
+__cmdUpdate = ' && svn update'
 
 
 def __prepare_cleanup_SVN():
     print('开始cleanup')
 
-    global path1
     path1 = config_autoPackage.project_path.split('/')[0]
-    global path2
     path2 = config_autoPackage.project_path.split(':/')[1]
 
     print("盘符： " + path1)
     print("路径： " + path2)
 
-    cmd = path1 + " && " + path2
+    global get_dic_cmd
+    get_dic_cmd = path1 + " && cd/ && cd " + path2
 
+    cmd = get_dic_cmd + __cmdCleanup
+
+    print(cmd)
     t = os.system(cmd)
 
     print("prepare_cleanup_SVN  ：" + str(t))
@@ -29,9 +31,10 @@ def __prepare_cleanup_SVN():
 def __prepare_revert_SVN():
     print('开始revert')
 
-    cmd = '%s && %s && svn revert %s -R && svn revert %s -R' % \
-          (path1, path2, config_autoPackage.external_link1, config_autoPackage.external_link2)
+    cmd = '%s && svn revert %s -R && svn revert %s -R' % \
+          (get_dic_cmd, config_autoPackage.external_link1, config_autoPackage.external_link2)
 
+    print(cmd)
     t = os.system(cmd)
 
     print("prepare_revert_SVN ：" + str(t))
@@ -42,8 +45,9 @@ def __prepare_revert_SVN():
 def __update_SVN():
     print('开始update')
 
-    cmd = path1 + " && " + path2 + __cmdUpdate
+    cmd = get_dic_cmd + __cmdUpdate
 
+    print(cmd)
     t = os.system(cmd)
 
     if t == 0:

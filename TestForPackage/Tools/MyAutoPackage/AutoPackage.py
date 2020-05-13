@@ -18,8 +18,8 @@ def __start_build_package():
 
     if platform_ == "Windows":
         cmd = 'start %s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
-            (config_autoPackage.unity_exe, config_autoPackage.project_path,
-            config_autoPackage.package_log, config_autoPackage.package_fuc)
+              (config_autoPackage.unity_exe, config_autoPackage.project_path,
+               config_autoPackage.package_log, config_autoPackage.package_fuc)
         print('run cmd:  ' + cmd)
         os.system(cmd)
     elif platform == "Mac":
@@ -29,7 +29,6 @@ def __start_build_package():
 
 
 def __monitor_unity_log(target_log):
-
     path = config_autoPackage.package_log
     pos = 0
 
@@ -45,8 +44,12 @@ def __monitor_unity_log(target_log):
         while True:
             line = fd.readline()
             pos = pos + len(line)
-            if target_log in line:
-                print('监测到unity输出了目标log: ' + target_log)
+            if 'Exiting batchmode successfully' in line:
+                print('监测到unity输出了目标log: ' + 'Exiting batchmode successfully')
+                fd.close()
+                return
+            if 'Scripts have compiler errors.' in line:
+                print('代码编译错误！！！')
                 fd.close()
                 return
             if line.strip():
