@@ -28,7 +28,7 @@ def __start_build_package():
         os.system(shell)
 
 
-def __monitor_unity_log(target_log):
+def __monitor_unity_log():
     path = config_autoPackage.package_log
     pos = 0
 
@@ -38,22 +38,30 @@ def __monitor_unity_log(target_log):
         else:
             time.sleep(0.1)
     while True:
-        fd = open(path, 'r', encoding='utf-8')
+        fd = open(path, 'r', encoding='UTF-8')
         if 0 != pos:
             fd.seek(pos, 0)
         while True:
             line = fd.readline()
-            pos = pos + len(line)
-            if 'Exiting batchmode successfully' in line:
-                print('监测到unity输出了目标log: ' + 'Exiting batchmode successfully')
+            pos = fd.tell()
+            if line.strip():
+                print(line)
+            if 'DisplayProgressNotification: Build Failed' in line:
+                print('打包失败 看Log！！！')
                 fd.close()
                 return
             if 'Scripts have compiler errors.' in line:
                 print('代码编译错误！！！')
                 fd.close()
                 return
-            if line.strip():
-                print(line)
+            if 'There is no Json at' in line:
+                print('目标路径 缺少配置Json文件！！！')
+                fd.close()
+                return
+            if 'Exiting batchmode successfully' in line:
+                print('Package成功 : Exiting batchmode successfully')
+                fd.close()
+                return
             else:
                 break
         fd.close()
@@ -65,4 +73,9 @@ def start_package():
     __clean_log()
     time.sleep(1)
     __start_build_package()
-    __monitor_unity_log('Exiting batchmode successfully')
+    __monitor_unity_log()
+
+
+if __name__ == '__main__':
+    start_package()
+

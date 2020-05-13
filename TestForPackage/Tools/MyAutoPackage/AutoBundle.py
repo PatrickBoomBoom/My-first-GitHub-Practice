@@ -40,9 +40,9 @@ def __monitor_unity_log():
             fd.seek(pos, 0)
         while True:
             line = fd.readline()
-            pos = pos + len(line)
+            pos = fd.tell()
             if 'Exiting batchmode successfully' in line:
-                print('监测到unity输出了目标log: ' + 'Exiting batchmode successfully')
+                print('Bundle 成功 ：Exiting batchmode successfully')
                 fd.close()
                 return
             if 'Scripts have compiler errors.' in line:
