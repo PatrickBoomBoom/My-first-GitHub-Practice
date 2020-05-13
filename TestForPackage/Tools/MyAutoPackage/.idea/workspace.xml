@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82582d0b-98f3-46fc-8f76-a799699d1137" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AutoBundle.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoBundle.py" afterDir="false" />
+    <list default="true" id="82582d0b-98f3-46fc-8f76-a799699d1137" name="Default Changelist" comment="啊">
       <change beforePath="$PROJECT_DIR$/AutoPackage.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoPackage.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +18,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AutoBundle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="74" />
+            <state relative-caret-position="-156">
+              <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -32,8 +30,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AutoPackage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="56" column="45" lean-forward="true" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+            <state relative-caret-position="130">
+              <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -151,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.AutoPackage">
+  <component name="RunManager" selected="Python.GoGoGo">
     <configuration name="AutoBundle" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MyAutoPackage" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -264,8 +262,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.AutoPackage" />
         <item itemvalue="Python.GoGoGo" />
+        <item itemvalue="Python.AutoPackage" />
         <item itemvalue="Python.AutoBundle" />
         <item itemvalue="Python.AutoUpdateSVN" />
         <item itemvalue="Python.test" />
@@ -288,7 +286,7 @@
       <workItem from="1589180531918" duration="23371000" />
       <workItem from="1589273291561" duration="6382000" />
       <workItem from="1589281909398" duration="4340000" />
-      <workItem from="1589335838504" duration="15196000" />
+      <workItem from="1589335838504" duration="20211000" />
     </task>
     <task id="LOCAL-00001" summary="啊">
       <created>1589369278999</created>
@@ -301,7 +299,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57422000" />
+    <option name="totallyTimeSpent" value="62437000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1186" extended-state="6" />
@@ -311,7 +309,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32944608" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.6235409" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4922179" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -339,8 +337,8 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MyAutoPackage$AutoBundle.coverage" NAME="AutoBundle Coverage Results" MODIFIED="1589337954196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MyAutoPackage$GoGoGo.coverage" NAME="GoGoGo Coverage Results" MODIFIED="1589370580592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MyAutoPackage$AutoPackage.coverage" NAME="AutoPackage Coverage Results" MODIFIED="1589376113169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MyAutoPackage$GoGoGo.coverage" NAME="GoGoGo Coverage Results" MODIFIED="1589385538208" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MyAutoPackage$AutoUpdateSVN.coverage" NAME="AutoUpdateSVN Coverage Results" MODIFIED="1589282485116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MyAutoPackage$test.coverage" NAME="test Coverage Results" MODIFIED="1589168133256" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
@@ -380,16 +378,6 @@
     <entry file="file://$PROJECT_DIR$/Config_AutoBundle.py" />
     <entry file="file://$PROJECT_DIR$/process.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GoGoGo.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://F:/python/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -438,10 +426,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/GoGoGo.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="5" column="23" lean-forward="true" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/AutoBundle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" selection-start-line="19" selection-end-line="21" selection-end-column="74" />
+        <state relative-caret-position="-156">
+          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -450,8 +448,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoPackage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="56" column="45" lean-forward="true" selection-start-line="56" selection-start-column="45" selection-end-line="56" selection-end-column="45" />
+        <state relative-caret-position="130">
+          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

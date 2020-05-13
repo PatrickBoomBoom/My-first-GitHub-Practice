@@ -46,12 +46,16 @@ def __monitor_unity_log():
             pos = fd.tell()
             if line.strip():
                 print(line)
-            if 'DisplayProgressNotification: Build Failed' in line:
-                print('打包失败 看Log！！！')
+            if 'is an incorrect path for a scene file: Build Failed' in line:
+                print('打包失败 ：错误的场景路径 看Log！！！')
                 fd.close()
                 return
             if 'Scripts have compiler errors.' in line:
                 print('代码编译错误！！！')
+                fd.close()
+                return
+            if 'DisplayProgressNotification: Build Failed' in line:
+                print('打包失败 看Log！！！')
                 fd.close()
                 return
             if 'There is no Json at' in line:
