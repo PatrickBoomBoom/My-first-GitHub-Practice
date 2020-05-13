@@ -25,7 +25,7 @@ def __start_build_bundle():
     os.system(cmd)
 
 
-def __monitor_unity_log(target_log):
+def __monitor_unity_log():
     print("__monitor_unity_log")
     pos = 0
 
