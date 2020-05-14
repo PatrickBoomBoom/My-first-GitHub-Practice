@@ -4,9 +4,7 @@
     <option name="SCOPE_TYPE" value="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="82582d0b-98f3-46fc-8f76-a799699d1137" name="Default Changelist" comment="啊">
-      <change beforePath="$PROJECT_DIR$/AutoPackage.py" beforeDir="false" afterPath="$PROJECT_DIR$/AutoPackage.py" afterDir="false" />
-    </list>
+    <list default="true" id="82582d0b-98f3-46fc-8f76-a799699d1137" name="Default Changelist" comment="啊" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/AutoPackage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="130">
-              <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+            <state relative-caret-position="572">
+              <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -286,7 +284,7 @@
       <workItem from="1589180531918" duration="23371000" />
       <workItem from="1589273291561" duration="6382000" />
       <workItem from="1589281909398" duration="4340000" />
-      <workItem from="1589335838504" duration="20211000" />
+      <workItem from="1589335838504" duration="20913000" />
     </task>
     <task id="LOCAL-00001" summary="啊">
       <created>1589369278999</created>
@@ -299,7 +297,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62437000" />
+    <option name="totallyTimeSpent" value="63139000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1186" extended-state="6" />
@@ -448,8 +446,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/AutoPackage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="130">
-          <caret line="50" column="26" lean-forward="true" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        <state relative-caret-position="572">
+          <caret line="67" column="22" lean-forward="true" selection-start-line="67" selection-start-column="22" selection-end-line="67" selection-end-column="22" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
