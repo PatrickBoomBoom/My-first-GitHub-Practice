@@ -1,6 +1,6 @@
 import os
 import config_autoPackage
-
+import platform
 
 __cmdCleanup = ' && svn cleanup && svn revert --recursive .'
 __cmdUpdate = ' && svn update'
@@ -9,16 +9,16 @@ __cmdUpdate = ' && svn update'
 def __prepare_cleanup_SVN():
     print('开始cleanup')
 
-    path1 = config_autoPackage.project_path.split('/')[0]
-    path2 = config_autoPackage.project_path.split(':/')[1]
+    if P.if_mac:
+        P.get_dic_cmd = "cd / && cd " + config_autoPackage.project_path_mac
+    else:
+        path1 = config_autoPackage.project_path.split('/')[0]
+        path2 = config_autoPackage.project_path.split(':/')[1]
+        print("盘符： " + path1)
+        print("路径： " + path2)
+        get_dic_cmd = path1 + " && cd / && cd " + path2
 
-    print("盘符： " + path1)
-    print("路径： " + path2)
-
-    global get_dic_cmd
-    get_dic_cmd = path1 + " && cd/ && cd " + path2
-
-    cmd = get_dic_cmd + __cmdCleanup
+    cmd = P.get_dic_cmd + __cmdCleanup
 
     print(cmd)
     t = os.system(cmd)
@@ -32,7 +32,7 @@ def __prepare_revert_SVN():
     print('开始revert')
 
     cmd = '%s && svn revert %s -R && svn revert %s -R' % \
-          (get_dic_cmd, config_autoPackage.external_link1, config_autoPackage.external_link2)
+          (P.get_dic_cmd, config_autoPackage.external_link1, config_autoPackage.external_link2)
 
     print(cmd)
     t = os.system(cmd)
@@ -45,7 +45,7 @@ def __prepare_revert_SVN():
 def __update_SVN():
     print('开始update')
 
-    cmd = get_dic_cmd + __cmdUpdate
+    cmd = P.get_dic_cmd + __cmdUpdate
 
     print(cmd)
     t = os.system(cmd)
@@ -57,8 +57,22 @@ def __update_SVN():
 
 
 def start_update():
+    m_platform = platform.system()
+
+    print('Current platform : ' + m_platform)
+
+    if m_platform == 'Darwin':
+        P.if_mac = True
+    else:
+        P.if_mac = False
+
     __prepare_cleanup_SVN()
+
+
+class P:
+    if_mac = False
+    get_dic_cmd = ''
 
 
 if __name__ == '__main__':
-    __prepare_cleanup_SVN()
+    start_update()

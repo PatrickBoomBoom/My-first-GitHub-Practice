@@ -9,36 +9,39 @@ def __kill_unity():
 
 
 def __clean_log():
-    if os.path.exists(config_autoPackage.package_log):
-        os.remove(config_autoPackage.package_log)
+    if P.if_mac:
+        P.log_path = config_autoPackage.bundle_log_mac
+    else:
+        P.log_path = config_autoPackage.bundle_log
+
+    if os.path.exists(P.log_path):
+        os.remove(P.log_path)
 
 
 def __start_build_package():
-    platform_ = platform.system()
-
-    if platform_ == "Windows":
-        cmd = 'start %s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
+    if P.if_mac:
+        cmd = '%s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
+              (config_autoPackage.unity_app, config_autoPackage.project_path_mac,
+               config_autoPackage.package_log_mac, config_autoPackage.package_fuc)
+    else:
+        cmd = '%s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
               (config_autoPackage.unity_exe, config_autoPackage.project_path,
                config_autoPackage.package_log, config_autoPackage.package_fuc)
-        print('run cmd:  ' + cmd)
-        os.system(cmd)
-    elif platform == "Mac":
-        shell = ''
-        print('run shell:   ' + shell)
-        os.system(shell)
+
+    print(cmd)
+    os.system(cmd)
 
 
 def __monitor_unity_log():
-    path = config_autoPackage.package_log
     pos = 0
 
     while True:
-        if os.path.exists(path):
+        if os.path.exists(P.log_path):
             break
         else:
             time.sleep(0.1)
     while True:
-        fd = open(path, 'r', encoding='UTF-8')
+        fd = open(P.log_path, 'r', encoding='UTF-8')
         if 0 != pos:
             fd.seek(pos, 0)
         while True:
@@ -72,12 +75,25 @@ def __monitor_unity_log():
 
 
 def start_package():
-    __kill_unity()
-    time.sleep(1)
+    m_platform = platform.system()
+    if m_platform == 'Darwin':
+        P.if_mac = True
+    else:
+        P.if_mac = False
+
+    if not P.if_mac:
+        __kill_unity()
+        time.sleep(1)
+
     __clean_log()
     time.sleep(1)
     __start_build_package()
     __monitor_unity_log()
+
+
+class P:
+    if_mac = False
+    log_path = ''
 
 
 if __name__ == '__main__':
