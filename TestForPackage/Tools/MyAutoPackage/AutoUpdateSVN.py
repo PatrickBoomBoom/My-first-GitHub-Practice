@@ -16,7 +16,7 @@ def __prepare_cleanup_SVN():
         path2 = config_autoPackage.project_path.split(':/')[1]
         print("盘符： " + path1)
         print("路径： " + path2)
-        get_dic_cmd = path1 + " && cd / && cd " + path2
+        P.get_dic_cmd = path1 + " && cd / && cd " + path2
 
     cmd = P.get_dic_cmd + __cmdCleanup
 

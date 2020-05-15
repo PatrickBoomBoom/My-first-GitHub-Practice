@@ -1,6 +1,7 @@
 import os
 import time
 import platform
+import subprocess
 import config_autoPackage
 
 
@@ -22,14 +23,14 @@ def __start_build_package():
     if P.if_mac:
         cmd = '%s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
               (config_autoPackage.unity_app, config_autoPackage.project_path_mac,
-               config_autoPackage.package_log_mac, config_autoPackage.package_fuc)
+               P.log_path, config_autoPackage.package_fuc)
     else:
         cmd = '%s -projectPath %s -logFile %s -executeMethod %s -batchmode -quit' % \
               (config_autoPackage.unity_exe, config_autoPackage.project_path,
-               config_autoPackage.package_log, config_autoPackage.package_fuc)
+               P.log_path, config_autoPackage.package_fuc)
 
-    print(cmd)
-    os.system(cmd)
+    print("run :  " + cmd)
+    subprocess.Popen(cmd)
 
 
 def __monitor_unity_log():

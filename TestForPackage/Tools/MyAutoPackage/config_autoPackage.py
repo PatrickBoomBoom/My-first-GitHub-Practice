@@ -3,7 +3,7 @@
 unity_exe = 'F:/unity/Editor/Unity.exe'
 unity_app = '/Applications/Unity/Unity.app/Contents/MacOS/Unity'
 # unity工程根目录
-project_path = ''
+project_path = 'E:/U_Project/TankTankTank'
 project_path_mac = "/Volumes/'MacOS HD Data'/works/GameLobby3D/trunk"
 # bundleLog位置
 bundle_log = 'C:/Users/hp/Desktop/AutoPackageTest/unity_bundle_log.log'

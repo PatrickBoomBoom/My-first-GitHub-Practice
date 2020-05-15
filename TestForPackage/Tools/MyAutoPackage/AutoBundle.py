@@ -1,6 +1,7 @@
 import os
 import time
 import platform
+import subprocess
 import config_autoPackage
 
 
@@ -30,7 +31,7 @@ def __start_build_bundle():
                  config_autoPackage.bundle_fuc, config_autoPackage.bundle_log)
 
     print(cmd)
-    os.system(cmd)
+    subprocess.Popen(cmd)
 
 
 def __monitor_unity_log():
@@ -49,6 +50,10 @@ def __monitor_unity_log():
         while True:
             line = fd.readline()
             pos = fd.tell()
+            if 'BatchMode: Unity has not been activated' in line:
+                print('失败 ：Unity 需要重新激活！！！ ')
+                fd.close()
+                return
             if 'Exiting batchmode successfully' in line:
                 print('Bundle 成功 ：Exiting batchmode successfully')
                 fd.close()
